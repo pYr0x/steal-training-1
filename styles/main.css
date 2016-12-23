@@ -1,0 +1,26 @@
+html, body {
+    height: 100vh;
+}
+
+.container {
+    height: inherit;
+}
+
+.flex-items-xs-top {
+    height: 10vh;
+}
+
+.flex-items-xs-middle {
+    height: 30vh
+}
+.flex-items-xs-middle .col-xs-6 {
+    text-align: center;
+}
+
+.flex-items-xs-middle + .flex-items-xs-top {
+    height: 60vh
+}
+
+.flex-items-xs-middle + .flex-items-xs-top .col-xs-6 {
+    text-align: center;
+}
