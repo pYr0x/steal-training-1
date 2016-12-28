@@ -1,11 +1,16 @@
+var arrayMath = require('./arrayMath');
+require('./gallery');
+
+
 var h1 = document.querySelector('#headline h1');
 h1.innerText = "Hello World";
 
-if (!window.arrayAddition) {
-  console.log('addArray not defined');
+
+if (!arrayMath.arrayAddition) {
+  console.log('arrayAddition not defined');
 } else {
   var array = [1, 2, 3, 4];
-  var result = window.arrayAddition(array);
+  var result = arrayMath.arrayAddition(array);
   var pre = document.querySelector('pre');
   pre.textContent = "Result of " + array.join(' + ') + " is " + result;
 }
@@ -13,21 +18,17 @@ if (!window.arrayAddition) {
 
 var btn = document.querySelector('#load-card');
 btn.addEventListener('click', function () {
+  document.querySelector("#card-widget").innerHTML = '<img class="text-xs-center" src="/styles/fancybox/fancybox_loading.gif">';
 
-  fetch("/javascript/src/card.js").then(function (response) {
 
-    document.querySelector("#card-widget").innerHTML = '<img class="text-xs-center" src="/styles/fancybox/fancybox_loading.gif">';
+  steal.import("javascript/src/card").then(function(card) {
 
-    return response.text();
-  }).then(function (js) {
-    window.templateVars = {
+    document.querySelector("#card-widget").innerHTML = card.renderer({
       btn: {
         name: "Go to Google",
         url: 'http://google.de'
       }
-    };
-
-    eval(js);
+    });
   }).catch(function (err) {
     console.error(err);
   });

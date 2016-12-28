@@ -9,3 +9,8 @@ var arraySubtraction = function(arr) {
     return a - b;
   }, 0);
 };
+
+module.exports = {
+  'arrayAddition': arrayAddition,
+  'arraySubtraction': arraySubtraction
+};
