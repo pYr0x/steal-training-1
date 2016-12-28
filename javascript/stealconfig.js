@@ -5,7 +5,8 @@ steal.config({
   },
   meta: {
     jquery: {
-      format: "global"
+      format: "global",
+      exports: "jQuery"
     },
     fancybox: {
       deps: ["jquery"]
